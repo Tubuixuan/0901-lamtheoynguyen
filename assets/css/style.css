@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Tính toán 10px = 1 rem (Bình thường 1 rem = 16px) */
+html {
+  font-size: 62.5%;
+}
+
+/* Khôi phục lại cỡ chữ mặc định */
+body {
+  font-size: 1.6rem;
+  /* Vì dùng font Poppins cho toàn trang, nên thêm vào. Còn font sen phần nào dùng thì embed phần đó */
+  font-family: "Poppins", sans-serif;
+}
+
+/* Code cho những thuộc tính dùng chung */
+a {
+  text-decoration: none;
+}
+
+/* Code cho nút bấm chung */
+.btn {
+  /* Mặc định của thẻ a là inline, muốn set kích thước phải chuyển sang block/ inline-block */
+  display: inline-block;
+  min-width: 118px;
+  padding: 0 16px;
+  line-height: 50px;
+  /* Copy style text */
+  color: #fff;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  /* Copy style nút */
+  border-radius: 24.5px;
+  background: #171100;
+}
+
+/* Code độ rộng cho các phần tử */
+.main-content {
+  width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Code max-width là để khi co màn hình thì không bị mất thông tin phần tử */
+  max-width: calc(100% - 48px);
+}
+
+/* Code cho phần header */
+.header .body {
+  display: flex;
+  align-items: center;
+  padding: 36px 0 8px;
+  /* Padding: trên 36px, dưới 8px, trái phải là 0px */
+}
+
+/* Ghim phần nav khi user cuộn chuột */
+.header.fixed {
+  position: sticky;
+  top: -28px;
+}
+
+/* Đổ màu nền cho phần header */
+.header {
+  background: #fffcf4;
+}
+
+/* Đẩy Nav + Button sang phải - Chỉ cần tác động vào Nav còn button sẽ tự động dịch sang cùng */
+/* Tác động vào bên trái của Nav */
+.nav {
+  margin-left: auto;
+}
+
+/* Xoay ngang các thẻ Nav */
+.nav ul {
+  display: flex;
+}
+
+/* Tạo style cho các thẻ a trong class nav */
+.nav a {
+  /* Dùng để tạo gạch chân dưới nút Home Position: relative */
+  position: relative;
+  color: #5f5b53;
+  font-size: 1.6rem;
+  /* background-color: red; */
+  /* Thêm padding để tăng khoảng tương tác của người dùng khi di chuột đến thẻ a */
+  /* Dùng margin thì vùng bấm sẽ bị thu hẹp lại, dùng Padding vùng bấm được mở rộng */
+  padding: 8px 21px;
+}
+
+/* Tạo hiệu ứng cho NAV khi user click vào */
+/* Lớp giả hover */
+/* Khi user click vào thì chuyển sang định dạng */
+.nav li.active a,
+.nav a:hover {
+  color: #171100;
+  /* font-weight: 600; */
+  /* Dùng font-weight phần tử sẽ bị giật, nên ta dùng text-shadow */
+  text-shadow: 1px 0 0 currentColor;
+}
+
+/* Tạo gạch chân dưới thẻ a khi user click vào */
+/* .nav li.active a::after */
+/* Để sử dụng before/after thì dùng content:"" */
+/* Display: inline thì sẽ không set được width height, mà cần phải chuyển sang Display: block */
+.nav li.active a::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+  background: #171100;
+  /* Để điều chỉnh dấu gạch chân dưới chữ Home thì học kiến thức Position: relative, absolute */
+  position: absolute;
+  /* Căn lại vị trí gạch chân */
+  left: 21px;
+  /* Căn khoảng cách dưới */
+  bottom: 6px;
+}
+
+/* Code thuộc tính riêng cho nút bấm */
+.header .btn-sign-up {
+  min-width: 144px;
+}
+
+/* Tạo khoảng cách giữa nút bấm với phần nav */
+.header .action {
+  margin-left: 49px;
+}
